@@ -1,0 +1,59 @@
+﻿@model UserViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Profil</title>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/templatemo-script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xtra Blog</title>
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/ -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/templatemo-xtra-blog.css" rel="stylesheet">
+    <script src="/js/jquery.min.js/web"></script>
+    <script src="/js/responsiveslides.min.js"></script>
+</head>
+<body>
+    <h3 style="text-align:center; margin-top:20px;">Hoşgeldiniz @Model.Ad @Model.Soyad</h3>
+    <table class="table" style="margin-right:90px;">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>Yaş</th>
+                <th>Cinsiyet</th>
+                <th>Kullanıcı Adı</th>
+                <th>E-Posta</th>
+                <th>Şifre(Hash)</th>
+                <th>Bilgilerimi Güncelle</th>
+                <th>Şifre Değiştir</th>
+                <th>Siteye Dön</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.Ad</td>
+                <td>@Model.Soyad</td>
+                <td>@Model.Age</td>
+                <td>@Model.Cinsiyet</td>
+                <td>@Model.UserName</td>
+                <td>@Model.Email</td>
+                <td>@Model.PasswordHash</td>
+                <td><a href="/Oturum/EditUser" class="btn btn-outline-secondary">Güncelle</a></td>
+                <td><a href="/Oturum/PasswordChange" class="btn btn-outline-secondary">Değiştir</a></td>
+                <td><a href="/HomePage/Index" class="btn btn-outline-secondary">Siteye Dön</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

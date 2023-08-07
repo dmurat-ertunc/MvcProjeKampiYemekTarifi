@@ -1,0 +1,75 @@
+﻿@using EntityLayer.Concrete
+@model List<YorumlarTmp>
+@{
+    ViewData["Title"] = "Yorumlar";
+    Layout = "~/Views/Shared/ProjeeLayout2.cshtml";
+}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Kullanıcı Listesi</h4>
+            <p class="card-description">
+                Add class <code>.table-striped</code>
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="w3-light-grey ">
+                            <th>İd</th>
+                            <th>Yorum Sahibi</th>
+                            <th>Yorum</th>
+                            <th>Hangi Tarife</th>
+                            <th>Sil</th>
+                            <th>Detaylar</th>
+                        </tr>
+                    </thead>
+                    @foreach (var x in Model)
+                    {
+                        <tr class="w3-hover-green">
+                            <td>@x.Id</td>
+                            <td>@x.KullaniciAdi</td>
+                            <td>@x.Yorum</td>
+                            <td>@x.TarifId</td>
+                            <td><a href="/Admin/YorumDelete/@x.Id" class="btn btn-danger">Sil</a></td>
+                            <td><a href="#" class="btn btn-default">Detaylar</a></td>
+
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="w3-container">
+    <table id="customer">
+        <h2 style="margin-left:60px;
+            margin-bottom:15px;">
+            Tarif Listesi
+        </h2>
+        <thead>
+            <tr class="w3-light-grey ">
+                <th>İd</th>
+                <th>Yorum Sahibi</th>
+                <th>Yorum</th>
+                <th>Hangi Tarife</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+                <th>Detaylar</th>
+            </tr>
+        </thead>
+        @foreach (var x in Model)
+        {
+            <tr class="w3-hover-green">
+                <td>@x.Id</td>
+                <td>@x.KullaniciId</td>
+                <td>@x.Yorum</td>
+                <td>@x.TarifId</td>
+                <td><a href="#" class="btn btn-warning">Güncelle</a></td>
+                <td><a href="#" class="btn btn-danger">Sil</a></td>
+                <td><a href="#" class="btn btn-default">Detaylar</a></td>
+
+            </tr>
+        }
+
+*@

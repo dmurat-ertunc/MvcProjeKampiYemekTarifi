@@ -1,0 +1,54 @@
+﻿@using EntityLayer.Concrete
+@model List<Tarifler>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="row tm-row" style="margin-left:550px;margin-top:20px;">
+    <div class="col-12">
+        <form method="GET" class="form-inline tm-mb-80 tm-search-form">
+            <input class="form-control tm-search-input" id="myInput" name="query" type="text" placeholder="Yemek Ara..." aria-label="Search">
+            <button class="tm-search-button" type="submit">
+                <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
+            </button>
+        </form>
+    </div>
+</div>
+
+
+<div class="row tm-row" style="margin-left:790px;" id="myTable">
+    @foreach(var item in Model)
+    {
+        <article class="col-12 col-md-6 tm-post" id="ccc">
+            <hr class="tm-hr-primary">
+            <a href="#" class="effect-lily tm-post-link tm-pt-20" >
+             <div class="tm-post-link-inner">
+                <img src="@item.Foto" alt="Image" class="img-fluid">
+             </div>
+             <h2 class="tm-pt-30 tm-color-primary tm-post-title" >@item.TarifAd</h2>
+            </a>
+            <p class="tm-pt-30">
+                @item.Aciklama
+            </p>
+            <a href="/Tarifler/TarifDetay/@item.Id" class="btn btn-primary" style="text-align:end">Devamını Oku</a>
+            <div class="d-flex justify-content-between tm-pt-45">
+                <span class="tm-color-primary">Mis Meal</span>
+                <span class="tm-color-primary"></span>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between">
+                <span></span>
+                <span>dme</span>
+            </div>
+        </article>
+    }
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable article").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+</div>

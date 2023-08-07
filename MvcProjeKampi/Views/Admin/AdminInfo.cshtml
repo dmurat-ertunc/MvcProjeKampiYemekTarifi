@@ -1,0 +1,35 @@
+﻿@model AdminInfoViewModel
+@{
+    ViewData["Title"] = "AdminInfo";
+    Layout = "~/Views/Shared/ProjeeLayout2.cshtml";
+}
+
+
+<table class="table" style="margin-left:150px; margin-top:50px;">
+    <h1 style="margin-left:150px;margin-top:50px;">Bilgilerim</h1>
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ad</th>
+            <th scope="col">Soyad</th>
+            <th scope="col">Yaş</th>
+            <th scope="col">Cinsiyet</th>
+            <th scope="col">Kullanıcı Adı</th>
+            <th scope="col">E-Posta</th>
+            <th scope="col">Şifre(HASH)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">@Model.Id</th>
+            <td>@Model.Ad</td>
+            <td>@Model.Soyad</td>
+            <td>@Model.Age</td>
+            <td>@Model.Cinsiyet</td>
+            <td>@Model.UserName</td>
+            <td>@Model.Email</td>
+            <td>@Model.PasswordHash</td>
+
+        </tr>
+    </tbody>
+</table>

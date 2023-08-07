@@ -1,0 +1,33 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@if(User.Identity!.IsAuthenticated)
+{
+    <li class="tm-nav-item">
+        <a href="/Oturum/Profil" class="tm-nav-link">
+            Bilgilerim
+        </a>
+    </li>
+    <li class="tm-nav-item">
+        <a class="tm-nav-link" asp-action="LogOut" asp-controller="Oturum" asp-route-returnUrl="/HomePage/Index">
+            Çıkış Yap
+        </a>
+    </li>
+}
+else
+{
+    <li class="tm-nav-item">
+        <a href="/Oturum/UyeOl" class="tm-nav-link">
+          Üye Ol
+        </a>
+    </li>
+    <li class="tm-nav-item">
+        <a href="/Oturum/GirisYap" class="tm-nav-link">
+          Giriş Yap
+        </a>
+    </li>
+}
+
+
+

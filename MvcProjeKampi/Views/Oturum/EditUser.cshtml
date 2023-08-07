@@ -1,0 +1,76 @@
+﻿@model UserEditViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Kullanıcı Güncelle</title>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/templatemo-script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xtra Blog</title>
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/ -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/templatemo-xtra-blog.css" rel="stylesheet">
+    <script src="/js/jquery.min.js/web"></script>
+    <script src="/js/responsiveslides.min.js"></script>
+</head>
+<body>
+    <div style="margin:50px 1000px 0px 1000px;">
+        <h2>Bilgilerimi Güncelle</h2>
+        @if (ViewBag.ok != null)
+        {
+            <div class="alert alert-success" role="alert">
+                @ViewBag.ok
+            </div>
+        }
+        <form class="pt-3" asp-action="EditUser" asp-controller="Oturum" method="post">
+            <div class="form-group">
+                <label for="Id">Id</label>
+                <input type="text" asp-for="Id" class="form-control form-control-lg" readonly />
+                <span class="text-danger" asp-validation-for="Id"></span>
+            </div>
+            <div class="form-group">
+                <label for="Ad">Adınız</label>
+                <input type="text" asp-for="Ad" class="form-control form-control-lg" />
+                <span class="text-danger" asp-validation-for="Ad"></span>
+            </div>
+            <div class="form-group">
+                <label for="Soyad">Soyadınız</label>
+                <input type="text" asp-for="Soyad" class="form-control form-control-lg" />
+                <span class="text-danger" asp-validation-for="Soyad"></span>
+            </div>
+            <div class="form-group">
+                <label for="Age">Yaşınız</label>
+                <input type="text" asp-for="Age" class="form-control form-control-lg" />
+                <span class="text-danger" asp-validation-for="Age"></span>
+            </div>
+            <div class="form-group">
+                <label for="Cinsiyet">Cinsiyet</label>
+                <input type="text" asp-for="Cinsiyet" class="form-control form-control-lg" />
+                <span class="text-danger" asp-validation-for="Cinsiyet"></span>
+            </div>
+            <div class="form-group">
+                <label for="UserName">Kullanıcı Adı</label>
+                <input type="text" asp-for="UserName" class="form-control form-control-lg" />
+                <span class="text-danger" asp-validation-for="UserName"></span>
+            </div>
+            <div class="form-group">
+                <label for="Email">E-Posta</label>
+                <input type="email" asp-for="Email" class="form-control form-control-lg" />
+                <span class="text-danger" asp-validation-for="Email"></span>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Güncelle</button>
+                <a href="/Oturum/Profil" class="btn btn-primary" style="margin-left:170px">Bilgilerime Dön</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

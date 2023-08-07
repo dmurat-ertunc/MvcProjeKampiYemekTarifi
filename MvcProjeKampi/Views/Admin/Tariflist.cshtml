@@ -1,0 +1,92 @@
+﻿@using EntityLayer.Concrete
+@model List<Tarifler>
+@{
+    ViewData["Title"] = "Tariflist";
+    Layout = "~/Views/Shared/ProjeeLayout2.cshtml";
+}
+    
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Tarif Listesi</h4>
+            <p class="card-description">
+                Add class <code>.table-striped</code>
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="w3-light-grey ">
+                            <th>Blog İd</th>
+                            <th>Yemek Adı</th>
+                            <th>Açıklama</th>
+                            <th>Tarif</th>
+                            <th>Foroğraf Url</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                            <th>Detaylar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr class="w3-hover-green">
+                                <td>@x.Id</td>
+                                <td>@x.TarifAd</td>
+                                <td>@x.Aciklama.Substring(0,50)</td>
+                                <td>@x.Tarif.Substring(0,50)</td>
+                                <td>@x.Foto.Substring(0,30)</td>
+                                <td><a href="/Admin/EditTarif/@x.Id" class="btn btn-warning">Güncelle</a></td>
+                                <td><a href="/Admin/DeleteTarif/@x.Id" class="btn btn-danger">Sil</a></td>
+                                <td><a href="" class="btn btn-default">Detaylar</a></td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Admin/AddTarif" class="btn btn-primary" style="margin-left:60px;
+            margin-bottom:15px;">Tarif Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="w3-container">
+    <table id="customer">
+        <h2 style="margin-left:60px;
+            margin-bottom:15px;">
+            Tarif Listesi
+        </h2>
+        <thead>
+            <tr class="w3-light-grey ">
+                <th>Blog İd</th>
+                <th>Yemek Adı</th>
+                <th>Açıklama</th>
+                <th>Tarif</th>
+                <th>Foroğraf Url</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+                <th>Detaylar</th>
+            </tr>
+        </thead>
+        @foreach (var x in Model)
+        {
+            <tr class="w3-hover-green">
+                <td>@x.Id</td>
+                <td>@x.TarifAd</td>
+                <td>@x.Aciklama.Substring(0,70)</td>
+                <td>@x.Tarif.Substring(0,70)</td>
+                <td>@x.Foto.Substring(0,30)</td>
+                <td><a href="#" class="btn btn-warning">Güncelle</a></td>
+                <td><a href="#" class="btn btn-danger">Sil</a></td>
+                <td><a href="#" class="btn btn-default">Detaylar</a></td>
+
+            </tr>
+        }
+        
+
+    </table>
+    <a href="/Admin/AddTarif" class="btn btn-primary" style="margin-left:60px;
+            margin-bottom:15px;">Yeni Tarif Ekle</a>
+        
+
+*@

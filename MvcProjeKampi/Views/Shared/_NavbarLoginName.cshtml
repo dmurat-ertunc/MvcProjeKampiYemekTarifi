@@ -1,0 +1,8 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@if(User.Identity!.IsAuthenticated)
+{
+    <p class="display-5" style="color:aliceblue; text-align:center;">HOŞGELDİNİZ <br> @User.Identity.Name</p>
+}

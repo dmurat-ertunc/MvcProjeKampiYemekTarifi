@@ -1,0 +1,164 @@
+﻿@model UserAddViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Skydash Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/vendors/feather/feather.css">
+    <link rel="stylesheet" href="/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="/img/favicon.png" />
+</head>
+<body>
+
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-center auth px-0">
+                <div class="row w-100 mx-0">
+                    <div class="col-lg-4 mx-auto">
+                        <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                            <div class="brand-logo">
+                                <i class="fas fa-times fa-2x"></i>
+                            </div>
+                            <h4>Kullanıcı Ekle</h4>
+                            @if (ViewBag.ms != null)
+                            {
+                                <div class="alert alert-info" role="alert">
+                                    @ViewBag.ms
+                                </div>
+                            }
+                            <div class="alert alert-danger" asp-validation-summary="ModelOnly" role="alert">
+                            </div>
+                            <form class="pt-3" method="post">
+                                <div class="form-group">
+                                    <label for="Ad">Adınız</label>
+                                    <input type="text" asp-for="Ad" class="form-control form-control-lg" />
+                                    <span class="text-danger" asp-validation-for="Ad"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Soyad">Soyadınız</label>
+                                    <input type="text" asp-for="Soyad" class="form-control form-control-lg" />
+                                    <span class="text-danger" asp-validation-for="Soyad"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Age">Yaşınız</label>
+                                    <input type="text" asp-for="Age" class="form-control form-control-lg" />
+                                    <span class="text-danger" asp-validation-for="Age"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Cinsiyet">Cinsiyetiniz</label>
+                                    <input type="text" asp-for="Cinsiyet" class="form-control form-control-lg" />
+                                    <span class="text-danger" asp-validation-for="Cinsiyet"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="UserName">Kullanıcı Adınız</label>
+                                    <input type="text" asp-for="UserName" class="form-control form-control-lg" />
+                                    <span class="text-danger" asp-validation-for="UserName"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="PhoneNumber">Telefon Numarası</label>
+                                    <input type="text" asp-for="PhoneNumber" class="form-control form-control-lg" />
+                                    <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Email">E-Postanız</label>
+                                    <input type="email" asp-for="Email" class="form-control form-control-lg" />
+                                    <span class="text-danger" asp-validation-for="Email"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Password">Şifreniz</label>
+                                    <input type="password" asp-for="Password" class="form-control form-control-lg" />
+                                    <span class="text-danger" asp-validation-for="Password"></span>
+                                </div>
+                                <div class="mt-3">
+                                    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">Ekle</button>
+                                    <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="/Admin/Kullanici">Listeye Dön</a>
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+
+    <script src="/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/js/off-canvas.js"></script>
+    <script src="/js/hoverable-collapse.js"></script>
+    <script src="/js/template.js"></script>
+    <script src="/js/settings.js"></script>
+    <script src="/js/todolist.js"></script>
+    <!-- endinject -->
+
+@*    <div class="container">
+        <div class="title">
+            <h2 class="display-3">Kullanıcı Ekle</h2>
+            @*<form action="AddKullanici" method="post">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Ad</span>
+                        <input type="text" name="Ad"  />
+                        @Html.ValidationMessageFor(x => x.Ad, "", new { @class = "details" })
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Soyad</span>
+                        <input type="text" name="Soyad"  />
+                        @Html.ValidationMessageFor(x => x.Soyad)
+                    </div>
+                    <div class="input-box">
+                        <span class="details">E-Posta</span>
+                        <input type="text" name="Email"  />
+                        @Html.ValidationMessageFor(x => x.Email)
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Cinsiyet</span>
+                        <input type="text" name="Cinsiyet"  />
+                        @Html.ValidationMessageFor(x => x.Cinsiyet, "", new { @class = "details" })
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Telefon</span>
+                        <input type="text" name="Telefon"  />
+                        @Html.ValidationMessageFor(x => x.Telefon)
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Kullanıcı Adı</span>
+                        <input type="text" name="KullaniciAdi"  />
+                        @Html.ValidationMessageFor(x => x.KullaniciAdi)
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Şifre</span>
+                        <input type="text" name="Sifre"  />
+                        @Html.ValidationMessageFor(x => x.Sifre)
+                    </div>
+                    
+
+                </div>
+                <div class="gender-details">
+                    <button type="submit" class="btn btn-danger">Ekle</button>
+                </div>
+            </form>  
+        </div>
+    </div>*@
+</body>
+</html>

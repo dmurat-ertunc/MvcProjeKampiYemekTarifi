@@ -1,0 +1,88 @@
+﻿@*@using EntityLayer.Concrete
+@model List<TarifYorum>*@
+
+@model EntityLayer.Concrete.TarifYorum
+@{
+    ViewData["Title"] = "TarifDetay";
+    Layout = "~/Views/Shared/_ProjeLayout.cshtml";
+}
+
+@foreach(var x in Model.Deger1)
+{
+    <div class="container-fluid" style="margin-left:500px;">
+        <main class="tm-main">
+            <div class="row tm-row tm-mb-45">
+                <div class="col-12">
+                    <hr class="tm-hr-primary tm-mb-55">
+                    <img src="@x.Foto" alt="Image" class="img-fluid">
+                </div>
+            </div>
+            <div class="row tm-row tm-mb-40">
+                <div class="col-12">
+                    <div class="mb-4">
+                        <h2 class="pt-2 tm-mb-40 tm-color-primary tm-post-title">@x.TarifAd</h2>
+                        <p>
+                            @x.Tarif
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+	
+}
+
+<h2 class="tm-color-primary tm-post-title" style="margin-left:600px;">Yorumlar</h2>
+@foreach(var y in Model.Deger4)
+{
+    
+    <div style="margin-left:600px;">
+        
+        <hr class="tm-hr-primary tm-mb-45">
+        <div class="tm-comment tm-mb-45">
+            <figure class="tm-comment-figure">
+            <img src="/img/comment-1.jpg" alt="Image" class="mb-2 rounded-circle img-thumbnail">
+            <figcaption class="tm-color-primary text-center">@y.KullaniciAdi</figcaption>
+            </figure>
+            <div>
+                <p>
+                @y.Yorum
+                </p>
+                <div class="d-flex justify-content-between">
+                    <a href="#" class="tm-color-primary">Yukarı Dön</a>
+                    <span class="tm-color-primary">MisMeal</span>
+                </div>                                                 
+            </div>                                
+        </div>
+    </div>
+    
+}
+@if(User.Identity!.IsAuthenticated)
+{
+    <div class="container-fluid" style="margin-left:1000px;">
+        <div class="row tm-row tm-mb-120">
+            <div class="col-12">
+            </div>
+            <div class="col-lg-7 tm-contact-left">
+                <form method="post" asp-controller="Tarifler" asp-action="TarifDetay" class="mb-5 ml-auto mr-0 tm-contact-form">
+                    <div class="form-group row mb-5">
+                        <label for="message" class="col-sm-3 col-form-label text-right tm-color-primary">Yorum</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control mr-0 ml-auto" name="Yorum" id="Yorum" rows="8" required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row text-right">
+                        <div class="col-12">
+                            <button type="submit" class="tm-btn tm-btn-primary tm-btn-small">Gönder</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+}
+else
+{
+    <a href="/Oturum/GirisYap" class="pt-2 tm-mb-40 tm-color-primary tm-post-title" style="margin-left:1100px;">Yorum Yapmak İçin Lütfen Giriş Yapın</a>
+}

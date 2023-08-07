@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete
+@model List<YorumlarTmp3>
+@{
+    ViewData["Title"] = "ContactList";
+    Layout = "~/Views/Shared/ProjeeLayout2.cshtml";
+}
+
+
+<div class="col-lg-36 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Mesaj Listesi</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="w3-light-grey ">
+                            <th>İd</th>
+                            <th>Yorum Sahibi</th>
+                            <th>Yorum</th>
+                            <th>Hangi Tarife</th>
+ 
+                        </tr>
+                    </thead>
+                    @foreach (var x in Model)
+                    {
+                        <tr class="w3-hover-green">
+                            <td>@x.Id</td>
+                            <td>@x.KullaniciAdi</td>
+                            <td>@x.Konu</td>
+                            <td>@x.Mesaj</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

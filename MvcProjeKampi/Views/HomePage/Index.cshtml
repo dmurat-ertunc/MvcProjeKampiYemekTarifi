@@ -1,0 +1,117 @@
+﻿@using EntityLayer.Concrete
+@model List<Tarifler>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ProjeLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <main class="tm-main" style="margin-left:790px;">
+        <!-- Search form -->
+        
+        <h1 class="display-1" style="color:darkturquoise;margin-left:50px;">Mis Meal</h1>
+
+        <div class="row tm-row">
+            <h5 class="display-4" style="margin-left:50px; color:dimgrey">Son Eklenen Tarifler</h5>
+            @*@await Html.PartialAsync("Part1")*@
+            @foreach(var x in Model)
+            {
+            <article class="col-12 col-md-6 tm-post">
+                <hr class="tm-hr-primary">
+                <a href="#" class="effect-lily tm-post-link tm-pt-60">
+                    <div class="tm-post-link-inner">
+                        <img src="@x.Foto" alt="Image" class="img-fluid">
+                    </div>
+                    <span class="position-absolute tm-new-badge">Yeni Eklenen</span>
+                    <h2 class="tm-pt-30 tm-color-primary tm-post-title">@x.TarifAd</h2>
+                </a>
+                <p class="tm-pt-30">
+                    @x.Aciklama.Substring(0,50)
+                </p>
+                <a href="/Tarifler/TarifDetay/@x.Id" class="btn btn-primary" style="text-align:end">Devamını Oku</a>
+
+                <div class="d-flex justify-content-between tm-pt-45">
+                        <span class="tm-color-primary">Mis Meal</span>
+                    <span class="tm-color-primary"></span>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <span></span>
+                    <span>dme</span>
+                </div>
+            </article>
+            }
+            
+            
+        </div>
+        <div class="row tm-row">
+            <div class="col-lg-8 tm-post-col">
+                <div class="tm-post-full">
+                    <div class="mb-4">
+                        <h2 class="pt-2 tm-color-primary tm-post-title">Mis Meal Yemek Tarifi Sitemiz</h2>
+                        <p class="tm-mb-40">Haziran 16, 2023'de kuruldu</p>
+                        <p>
+                            Yemek yapmak zamanla geliştirilen bir yetenektir. Öncelikle basit yemek tarifleri ile başlarsınız, sonra zamanla daha zor olanlara geçersiniz.
+                            Bütün bunları yaparken de tarifleri okuyacağınız bir kaynağa sahip olmalısınız. Benim de sık sık yararlandığım en iyi yemek tarifi siteleri var.
+                            Bu yemek sitelerinde çorba tariflerinden,tatlı tariflerine kadar birçok farklı alternatif göreceksiniz.
+                            Her tarifin detaylı açıklamaları ve malzemeleri bulunmaktadır.
+                        </p>
+                        <p>
+                            İştah kabartan, kahvaltılıktan diyete, tatlıdan kış hazırlığına varıncaya kadar binbir
+                            çeşit tarifler hazırlayan Mis Meal yemekt tarifleri sitemize incelemeye hemen başlamalısınız. Bundan sonra sitemizi ziyaret
+                            ederek akşama ne pişirsem? Misafir için hangi tatlıyı yapsam? gibi sorularınıza şipşak çözüm bulabileceksiniz. 
+                            Hadi gelin birbirinden güzel tariflerimize birlikte göz atalım.
+                        </p>
+                    </div>
+
+                    <!-- Comments -->
+                    <div>
+                        <h2 class="tm-color-primary tm-post-title">Kurucu</h2>
+                        <hr class="tm-hr-primary tm-mb-45">
+                        <div class="tm-comment tm-mb-45">
+                            <div>
+                                <p>
+                                    Gazi Üniversite Teklonoji Fakültesi Bilgisayar Mühendisliği öğrencisiyim. Bu projeyi 2023 yılında gerçekleştirmiş olduğum
+                                    yaz stajında bitirmiş bulunmaktayım. Umarım siz değerli ziyaretçilerimize en iyi şekilde hitap edebilmeyi başarmışımdır.
+                                    Şimdiden ellerinize sağlık &#128515;
+                                </p>
+                                <div class="d-flex justify-content-between">
+                                    <a href="#" class="tm-color-primary">Dursun Murat Ertunç</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <aside class="col-lg-4 tm-aside-col">
+                <div class="tm-post-sidebar">
+                    <hr class="mb-3 tm-hr-primary">
+                    <h2 class="mb-4 tm-post-title tm-color-primary">Şuraya Gidin</h2>
+                    <ul class="tm-mb-75 pl-5 tm-category-list">
+                        <li><a href="#" class="tm-color-primary">Tarifler</a></li>
+                        <li><a href="#" class="tm-color-primary">Hakkımızda</a></li>
+                        <li><a href="#" class="tm-color-primary">Bilgilerim</a></li>
+                        <li><a href="#" class="tm-color-primary">İletişim</a></li>
+                        <li><a href="#" class="tm-color-primary">Üye Ol</a></li>
+                        <li><a href="#" class="tm-color-primary">Giriş Yap</a></li>
+                    </ul>
+                    <hr class="mb-3 tm-hr-primary">
+                    <h2 class="tm-mb-40 tm-post-title tm-color-primary">Sitemiz</h2>
+                    <a href="#" class="d-block tm-mb-40">
+                        <figure>
+                            <img src="https://refikaninmutfagi.com/wp-content/uploads/2022/04/KAHVALTI_KASESI_67A2829-scaled.jpg" alt="Image" class="mb-3 img-fluid">
+                            <figcaption class="tm-color-primary">Sağlıklı yemeklerle, geleceğinizi mahvetmeyin!</figcaption>
+                        </figure>
+                    </a>
+                    <a href="#" class="d-block tm-mb-40">
+                        <figure>
+                            <img src="https://www.netkurumsal.com/wp-content/uploads/2018/06/catering-firmasi-300x169.jpg" alt="Image" class="mb-3 img-fluid">
+                            <figcaption class="tm-color-primary">Misafirlerinize muazzam sunumlar yapın</figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </div>
+</main>

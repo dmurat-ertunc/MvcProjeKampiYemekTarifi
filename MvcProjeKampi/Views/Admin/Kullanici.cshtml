@@ -1,0 +1,57 @@
+﻿@using EntityLayer.Concrete
+@model List<AppUser>
+@{
+    ViewData["Title"] = "Kullanici";
+    Layout = "~/Views/Shared/ProjeeLayout2.cshtml";
+}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Kullanıcı Listesi</h4>
+            <p class="card-description">
+                Add class <code>.table-striped</code>
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>İd</th>
+                            <th>Ad</th>
+                            <th>Soyad</th>
+                            <th>E-Posta</th>
+                            <th>Cinsiyet</th>
+                            <th>Telefon</th>
+                            <th>Kullanıcı Adı</th>
+                            <th>Şifre(Hash)</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                            <th>Detaylar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr class="w3-hover-green">
+                                <td>@x.Id</td>
+                                <td>@x.Ad</td>
+                                <td>@x.Soyad</td>
+                                <td>@x.Email</td>
+                                <td>@x.Cinsiyet</td>
+                                <td>@x.PhoneNumber</td>
+                                <td>@x.UserName</td>
+                                <td>@x.PasswordHash</td>
+                                <td><a href="/Admin/EditKullanici/@x.Id" class="btn btn-outline-primary">Güncelle</a></td>
+                                <td><a href="/Admin/DeleteKullanici/@x.Id" class="btn btn-outline-primary">Sil</a></td>
+                                <td><a href="#" class="btn btn-default">Detaylar</a></td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Admin/AddKullanici" class="btn btn-primary" style="margin-left:60px;
+            margin-bottom:15px;">Kullanıcı Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>
+
